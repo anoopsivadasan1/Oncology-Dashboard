@@ -11,7 +11,8 @@ library(survminer)
 
 # ---- Load data ----
 
-file_path <- "sample_disposition_dashboard_data.xlsx"
+file_path <- "tumor_growth_data.xlsx"
+file_path <- "tumor_growth_data.xlsx"
 
 berg <- read_excel(file_path, sheet = "Berg")
 juni <- read_excel(file_path, sheet = "Juni")
