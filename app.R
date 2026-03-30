@@ -9,6 +9,13 @@ library(ggplot2)
 library(survival)
 library(survminer)
 
+# ---- Load data ----
+
+file_path <- "sample_disposition_dashboard_data.xlsx"
+
+berg <- read_excel(file_path, sheet = "Berg")
+juni <- read_excel(file_path, sheet = "Juni")
+
 # ---- UI ----
 ui <- fluidPage(
   titlePanel("Oncology Dashboard: Tumor Growth & Survival Analysis"),
