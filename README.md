@@ -21,7 +21,6 @@ and more intuitive experience.
 ## **1. Tumor Growth (Spider Plot)**
 This module visualizes **Change From Baseline** across visits for each subject.
 
-### Why these components are used:
 - **`read_excel("Tumor Growth")`**  
   Loads tumor growth data directly from the ADaM‑style sheet.
 - **Reactive filtering by TNF status**  
@@ -38,7 +37,6 @@ This tab helps reviewers quickly understand tumor burden evolution and verify co
 ## **2. Kaplan–Meier Survival Analysis**
 This module displays KM curves stratified by TNF status.
 
-### Why these components are used:
 - **`survfit(Surv(Time, Event) ~ TNF_Status)`**  
   Fits survival curves based on ADTTE‑like data.
 - **`ggsurvplot()`**  
@@ -53,7 +51,6 @@ This tab supports validation of survival endpoints and ensures alignment between
 ## **3. Swimmer Plot (Overall Response + Duration of Response)**
 This module integrates **Overall Survival (OS)**, **Best Overall Response (BOR)**, and **Duration of Response (DOR)**.
 
-### Why these components are used:
 
 #### **Data Preparation**
 - **ADSL + ADTTE + ADRS merges**  
@@ -83,7 +80,7 @@ This tab gives reviewers a consolidated view of treatment effect, response durab
 
 # **🔧 Summary of Data Manipulations**
 
-Below is a concise description of the major transformations performed in the app, based directly on your code:
+Below is a concise description of the major transformations performed in the app:
 
 ### **1. Tumor Growth**
 - Filter by TNF status  
