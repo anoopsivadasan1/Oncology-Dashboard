@@ -196,37 +196,37 @@ ui <- fluidPage(
              )
     ),
     
-      
+    
     # ---- TAB 3: Swimmer–Plot for Overall Response and DOR embedment ----
     
     tabPanel(
-        title = "Swimmer Plot",
+      title = "Swimmer Plot",
+      
+      sidebarLayout(
         
-        sidebarLayout(
+        sidebarPanel(
+          width = 2,
           
-          sidebarPanel(
-            width = 2,
-            
-            selectInput(
-              inputId = "trta",
-              label = "Select Treatment:",
-              choices = c("All", sort(unique(os_df$TRTA))),
-              selected = "All"
-            ),
-            
-            checkboxInput(
-              inputId = "show_dor",
-              label = "DOR",
-              value = FALSE
-            )
+          selectInput(
+            inputId = "trta",
+            label = "Select Treatment:",
+            choices = c("All", sort(unique(os_df$TRTA))),
+            selected = "All"
           ),
           
-          mainPanel(
-            width = 9,
-            plotOutput("swimmerPlot", height = "700px")
+          checkboxInput(
+            inputId = "show_dor",
+            label = "DOR",
+            value = FALSE
           )
+        ),
+        
+        mainPanel(
+          width = 9,
+          plotOutput("swimmerPlot", height = "700px")
         )
       )
+    )
     
     
   )
@@ -235,7 +235,7 @@ ui <- fluidPage(
 # ---- SERVER ----
 server <- function(input, output, session) {
   
- 
+  
   
   # ---- TAB 1: Tumor Growth ----
   filtered_tumor <- reactive({
@@ -352,7 +352,7 @@ server <- function(input, output, session) {
       
       scale_color_manual(values = trt_colors, name = "Treatment") +
       
-    # -------------------------
+      # -------------------------
     # DOR OVERLAY
     # -------------------------
     
@@ -379,13 +379,13 @@ server <- function(input, output, session) {
       ) +
       
       
-    # -------------------------
+      # -------------------------
     # Legend for Treatment
     # -------------------------
     
     scale_color_manual(values = bor_colors, guide = "none") +
       
-    # --------------------------------------
+      # --------------------------------------
     # Overlay Subject status' shapes in plot
     # --------------------------------------
     
@@ -397,7 +397,7 @@ server <- function(input, output, session) {
     ) +
       
       
-    # -------------------------
+      # -------------------------
     # Legend for Subject Status
     # -------------------------
     
@@ -446,13 +446,9 @@ server <- function(input, output, session) {
       )
     
   }, res = 120)
-
+  
   
 }
 
 # ---- RUN APP ----
 shinyApp(ui, server)
-
-
-
-
